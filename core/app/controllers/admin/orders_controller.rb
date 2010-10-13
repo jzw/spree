@@ -3,7 +3,7 @@ class Admin::OrdersController < Admin::BaseController
   resource_controller
   before_filter :initialize_txn_partials
   before_filter :initialize_order_events
-  before_filter :load_object, :only => [:fire, :resend, :history]
+  before_filter :load_object, :only => [:fire, :resend, :history, :customer]
   before_filter :ensure_line_items, :only => [:update]
 
   update do
@@ -43,6 +43,9 @@ class Admin::OrdersController < Admin::BaseController
     OrderMailer.confirm_email(@order, true).deliver
     flash.notice = t('order_email_resent')
     redirect_to :back
+  end
+  
+  def customer
   end
 
   private

@@ -9,8 +9,8 @@ describe Admin::CheckoutController do
   end
 
   it "should understand checkout routes" do
-    assert_routing("/admin/orders/123/checkout", {:controller => "admin/checkout", :action => "update", :order_number => "123", :method => :post})
-    assert_routing("/admin/orders/123/checkout/cart", {:controller => "admin/checkout", :action => "edit", :order_number => "123", :state => "cart", :method => :get})
+    assert_routing("/admin/orders/123/checkout", {:controller => "admin/checkout", :action => "update", :order_number => "123"})
+    assert_routing("/admin/orders/123/checkout/cart", {:controller => "admin/checkout", :action => "edit", :order_number => "123", :state => "cart"})
   end
 
 

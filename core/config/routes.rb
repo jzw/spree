@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   match '/checkout' => 'checkout#edit', :state => 'address', :as => :checkout
 
   # non-restful admin checkout stuff
-  match '/admin/orders/:order_number/checkout' => 'admin/checkout#update', :method => :post, :as => :admin_orders_checkout
-  match '/admin/orders/:order_number/checkout/(:state)' => 'admin/checkout#edit', :method => :get, :as => :admin_orders_checkout
+  match '/admin/orders/:order_number/checkout' => 'admin/checkout#update', :as => :admin_orders_checkout
+  match '/admin/orders/:order_number/checkout/(:state)' => 'admin/checkout#edit', :as => :admin_orders_checkout
 
   resources :orders do
     post :populate, :on => :collection
@@ -127,6 +127,7 @@ Rails.application.routes.draw do
         get :fire
         post :resend
         get :history
+        get :customer
       end
 
       resources :adjustments

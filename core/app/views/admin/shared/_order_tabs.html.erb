@@ -36,7 +36,7 @@
           <%= link_to t("order_details"), admin_order_url(@order) %>
         </li>
         <li <%= ' class=active' if current == "Customer Details" %>>
-          <%= link_to t("customer_details"), admin_orders_checkout_url(@order) %>
+          <%= link_to t("customer_details"), customer_admin_order_url(@order) %>
         </li>
         <li <%= ' class=active' if current == "Adjustments" %>>
            <%= link_to t("adjustments"), admin_order_adjustments_url(@order) %>
